@@ -1,0 +1,10 @@
+version: "3"
+services:
+  getsports:
+    build: .
+    restart: always
+    ports:
+      - "8888:8888"
+    volumes:
+      - .:/getsports
+    command: /bin/sh -c "python getsports.py"

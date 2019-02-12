@@ -1,0 +1,15 @@
+version: "3.3"
+services:
+  getsports:
+    image: "phz/sportstracker"
+    ports:
+      - "8888:8888"
+    command: /bin/sh -c "python getsports.py"
+
+    deploy:
+      replicas: 1
+      placement:
+        constraints:
+          - node.labels.host==ondost
+        preferences:
+          - spread: node.labels.host
